@@ -2,6 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFtaW5sYXplcm9mZiIsImEiOiJja3VpcHN4dWwyc
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/benjaminlazeroff/ckv48a47o5fu414qopo2o38se',
+    //TODO: Figure out starting points
     center: [-77.04, 38.907],
     zoom: 11.15
 });
@@ -11,7 +12,7 @@ map.on('load', () => {
         'url': 'mapbox://benjaminlazeroff.7hcyjhf2',
         'type': "vector"
     });
-    // Add a layer showing the places.
+    // Add a layer showing the crash points.
     map.addLayer({
         'id': 'plane-crashes',
         'type': 'circle',
@@ -28,12 +29,19 @@ map.on('load', () => {
 
     // Create a popup, but don't add it to the map yet.
     const popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
+        closeButton: true,
+        closeOnClick: true
+
+        // TODO: scrollable stuff probably goes here
     });
 
     map.on('mouseenter', 'plane-crashes', (e) => {
         // Change the cursor style as a UI indicator.
+
+        //TODO: Zoom stuffs
+        //maybe map.zoom > threshold?
+        //if zoom > threshold: return
+
         map.getCanvas().style.cursor = 'pointer';
 
         // Copy coordinates array.
@@ -57,7 +65,9 @@ map.on('load', () => {
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
     });
 
-    map.on('mouseleave', 'places', () => {
+    //not sure if we want this here. Not really user friendly?
+    //maybe have if the point is clicked the box stays up until "x" is clicked
+    map.on('mouseleave', 'plane-crashes', () => {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
