@@ -1,6 +1,6 @@
-[ ] Make mouseover box pretty
-[ ] Make mouseover box scrollable
-[ ] Make date range work
-[ ] Add "x" to popup box
-[ ] Make popup boxes only show when zoomed in
-[ ] Make other filter properties?
+- [ ] Make mouseover box pretty (Easy)
+- [ ] Make mouseover box scrollable (Easy)
+- [ ] Make date range work (Hard)
+- [ ] Add "x" to popup box (Medium)
+- [ ] Make popup boxes only show when zoomed in (Easy)
+- [ ] Make other filter properties? (???)
