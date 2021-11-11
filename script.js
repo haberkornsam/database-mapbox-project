@@ -8,6 +8,7 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
+
     map.addSource('tileset_data', {
         'url': 'mapbox://benjaminlazeroff.7hcyjhf2',
         'type': "vector"
@@ -35,12 +36,10 @@ map.on('load', () => {
         // TODO: scrollable stuff probably goes here
     });
 
-    map.on('mouseenter', 'plane-crashes', (e) => {
+    map.on('click', 'plane-crashes', (e) => {
         // Change the cursor style as a UI indicator.
+        if ( map.getZoom() > 6 ){
 
-        //TODO: Zoom stuffs
-        //maybe map.zoom > threshold?
-        //if zoom > threshold: return
 
         map.getCanvas().style.cursor = 'pointer';
 
@@ -63,13 +62,14 @@ map.on('load', () => {
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
+        }
     });
 
     //not sure if we want this here. Not really user friendly?
     //maybe have if the point is clicked the box stays up until "x" is clicked
-    map.on('mouseleave', 'plane-crashes', () => {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    });
+   // map.on('mouseleave', 'plane-crashes', () => {
+    //    map.getCanvas().style.cursor = '';
+    //    popup.remove();
+   // });
 
 });
