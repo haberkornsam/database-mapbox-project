@@ -11,7 +11,7 @@ const map = new mapboxgl.Map({
 map.on('load', () => {
 
     map.addSource('tileset_data', {
-        'url': 'benjaminlazeroff.6qsjs25m',
+        'url': 'mapbox://benjaminlazeroff.6qsjs25m',
         'type': "vector"
     });
     // Add a layer showing the crash points.
