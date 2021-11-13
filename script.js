@@ -209,10 +209,13 @@ map.on('load', () => {
 
     //not sure if we want this here. Not really user friendly?
     //maybe have if the point is clicked the box stays up until "x" is clicked
-   // map.on('mouseleave', 'plane-crashes', () => {
-    //    map.getCanvas().style.cursor = '';
-    //    popup.remove();
-   // });
+    map.on('mouseleave', 'plane-crashes', () => {
+        map.getCanvas().style.cursor = '';
+   });
+   map.on('mouseenter', 'plane-crashes', () => {
+       if (map.getZoom() > 6)
+            map.getCanvas().style.cursor = 'pointer';
+});
 
 });
 
