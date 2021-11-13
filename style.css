@@ -36,19 +36,124 @@ body {
     line-height: 24px;
     display: block;
     margin: 0 0 10px;
+    text-align: center;
 }
 
-.map-overlay .legend .bar {
-    height: 10px;
+
+#time-overlay {
+    position: absolute;
+    bottom: 5%;
     width: 100%;
-    background: linear-gradient(to right, #fca107, #7f3121);
+    height: 60px;
 }
 
-.map-overlay input {
-    background-color: transparent;
-    display: inline-block;
-    width: 100%;
+section.range-slider {
     position: relative;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    top: 85%;
+}
+
+section.range-slider input {
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    outline: none;
+    height: 20px;
     margin: 0;
-    cursor: ew-resize;
+    padding: 0;
+}
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  background-color: #586575;
+  border-radius: 20px;
+}
+
+section.range-slider input::-webkit-slider-thumb {
+  	-webkit-appearance: none;
+    pointer-events: all;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+    cursor: pointer;
+    
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #000000;
+}
+
+#delta {
+position: absolute;
+overflow: hidden;
+width: 25%;
+height: 20px;
+background: #c1a551;
+left: 25%;
+border-radius: 20px;
+margin: 0;
+}
+
+.datePopups {
+    display: inline-block;
+    /* Real styles */
+    position: absolute;
+    text-align: center;
+    width: 3em;
+    height: 20px;
+    padding: 4px;
+    background-color: #444;
+	background-image: -moz-linear-gradient(top, #444, #444);
+    color: #ccc;
+    border-radius: 3px;
+    border: 1px solid #333;
+    text-shadow: 0 0 1px #000;
+    bottom: 40%;
+    visibility: hidden;
+  }
+
+
+.datePopups:after {
+  content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 40%;
+	bottom: -25px;
+  border: 8px solid transparent;
+  border-top: 24px solid #444;
+  z-index: 3;
+}
+
+#popupUpperBound {
+    left: 75%;
+}
+#popupLowerBound {
+    left: 25%;
+}
+
+.popupP {
+    margin: 0;
+}
+
+.inputBounds {
+top: 50px;
+width: 5em;
+pointer-events: all;
+}
+#lowerinput {
+top: 75px;
+}
+
+#filterTable {
+    width: 100%;
 }

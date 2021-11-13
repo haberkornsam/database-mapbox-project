@@ -16,11 +16,32 @@
     <div class="map-overlay top">
         <div class="map-overlay-inner">
             <h2>Plane Crashes</h2>
-            <label id="month"></label>
-            <input id="slider" type="range" min="1948" max="2007" step="1" value="2007">
+            <table id="filterTable">
+                <tr>
+                    <td>Start Year:</td>
+                    <td><input type="number" class="inputBounds" , id="lowerinput"></td>
+                </tr>
+                <tr>
+                    <td>End Year:</td>
+                    <td><input type="number" class="inputBounds" , id="upperinput"></td>
+                </tr>
+            </table>
+
         </div>
-        <div class="map-overlay-inner">
+    </div>
+    <div id="time-overlay">
+        <div class="datePopups" id='popupLowerBound'>
+            <p class='popupP' id=popupLabelLower>1950</p>
         </div>
+        <div class="datePopups" id='popupUpperBound'>
+            <p class='popupP' id='popupLabelUpper'>1950</p>
+        </div>
+        <section class="range-slider">
+            <input value="1950" min="1920" max="2017" type="range" id="lowerbound" class="slider">
+            <input value="2000" min="1920" max="2017" type="range" id="upperbound" class="slider">
+
+            <div class="gap" id="delta"></div>
+        </section>
     </div>
     </div>
 
