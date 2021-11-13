@@ -3,14 +3,15 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/benjaminlazeroff/ckv48a47o5fu414qopo2o38se',
     //TODO: Figure out starting points
-    center: [-77.04, 38.907],
-    zoom: 11.15
+    //center: [-77.04, 38.907],
+    center: [-104.798, 38.892],
+    zoom: 8
 });
 
 map.on('load', () => {
 
     map.addSource('tileset_data', {
-        'url': 'mapbox://benjaminlazeroff.7hcyjhf2',
+        'url': 'mapbox://benjaminlazeroff.6qsjs25m',
         'type': "vector"
     });
     // Add a layer showing the crash points.
@@ -18,7 +19,7 @@ map.on('load', () => {
         'id': 'plane-crashes',
         'type': 'circle',
         'source': 'tileset_data',
-        'source-layer': 'plane_data_full-8vfstn',
+        'source-layer': 'plane_data_v2-7au7tr',
         'paint': {
             'circle-color': '#4264fb',
             'circle-radius': 6,
