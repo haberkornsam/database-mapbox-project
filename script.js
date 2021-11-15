@@ -188,11 +188,13 @@ map.on('load', () => {
         // Copy coordinates array.
         const coordinates = e.features[0].geometry.coordinates.slice();
 
-        let description = "";
+        let description = "<div class=infoPopup>";
 
         for (const property in e.features[0].properties) {
-            description += "<p>" + property + ": " + e.features[0].properties[property] + "</p>";
+            description += "<p><b>" + property + "</b>: " + e.features[0].properties[property] + "</p>";
         }
+
+        description += "</div>"
 
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears

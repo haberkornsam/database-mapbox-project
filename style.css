@@ -11,8 +11,13 @@ body {
 }
 
 .mapboxgl-popup {
-    max-width: 400px;
+    max-width: 500px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.infoPopup{
+    max-height: 200px;
+    overflow-y:auto;    
 }
 
 .map-overlay {
