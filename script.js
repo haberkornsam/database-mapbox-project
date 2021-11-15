@@ -1,9 +1,9 @@
-//mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFtaW5sYXplcm9mZiIsImEiOiJja3VpcHN4dWwycWZqMnBxNnJtYmJpbnd3In0.H_pK2d841LgStK98lxBccA';
-mapboxgl.accessToken = 'pk.eyJ1IjoiaGFiZXJrb3Juc2FtIiwiYSI6ImNrdXlpZmJ2dTczMTIyb2s2ZWV0anZzYm0ifQ.eFssB90u2FOHXf2H3NTLTg'
+mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFtaW5sYXplcm9mZiIsImEiOiJja3VpcHN4dWwycWZqMnBxNnJtYmJpbnd3In0.H_pK2d841LgStK98lxBccA';
+//SAMS CODE mapboxgl.accessToken = 'pk.eyJ1IjoiaGFiZXJrb3Juc2FtIiwiYSI6ImNrdXlpZmJ2dTczMTIyb2s2ZWV0anZzYm0ifQ.eFssB90u2FOHXf2H3NTLTg'
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/haberkornsam/ckvxfajdp5o8814s8zkgzd8eu',
-    //style: 'mapbox://styles/benjaminlazeroff/ckv48a47o5fu414qopo2o38se',
+    //SAMS CODE style: 'mapbox://styles/haberkornsam/ckvxfajdp5o8814s8zkgzd8eu',
+    style: 'mapbox://styles/benjaminlazeroff/ckv48a47o5fu414qopo2o38se',
     //TODO: Figure out starting points
     //center: [-77.04, 38.907],
     center: [-104.798, 38.892],
