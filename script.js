@@ -1,8 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFtaW5sYXplcm9mZiIsImEiOiJja3VpcHN4dWwycWZqMnBxNnJtYmJpbnd3In0.H_pK2d841LgStK98lxBccA';
-//SAMS CODE mapboxgl.accessToken = 'pk.eyJ1IjoiaGFiZXJrb3Juc2FtIiwiYSI6ImNrdXlpZmJ2dTczMTIyb2s2ZWV0anZzYm0ifQ.eFssB90u2FOHXf2H3NTLTg'
+//mapboxgl.accessToken = 'pk.eyJ1IjoiaGFiZXJrb3Juc2FtIiwiYSI6ImNrdXlpZmJ2dTczMTIyb2s2ZWV0anZzYm0ifQ.eFssB90u2FOHXf2H3NTLTg'
+const default_filter = ["has", "Event Year"]
 const map = new mapboxgl.Map({
     container: 'map',
-    //SAMS CODE style: 'mapbox://styles/haberkornsam/ckvxfajdp5o8814s8zkgzd8eu',
+    //style: 'mapbox://styles/haberkornsam/ckvxfajdp5o8814s8zkgzd8eu',
     style: 'mapbox://styles/benjaminlazeroff/ckv48a47o5fu414qopo2o38se',
     //TODO: Figure out starting points
     //center: [-77.04, 38.907],
@@ -22,10 +23,7 @@ map.on('load', () => {
         'type': 'circle',
         'source': 'tileset_data',
         'source-layer': 'plane_data_v2-7au7tr',
-        "filter": [
-            "has",
-            "Aircraft Damage"
-          ],
+        "filter": ["all", default_filter],
           "paint": {
             "circle-color": [
               "match",
@@ -39,7 +37,7 @@ map.on('load', () => {
               "hsl(59, 100%, 51%)",
               "Destroyed",
               "hsl(0, 100%, 47%)",
-              "hsla(0, 0%, 0%, 0)"
+              "hsl(180, 100%, 50%)"
             ],
             "circle-radius": [
               "interpolate",
@@ -150,7 +148,7 @@ map.on('load', () => {
               "hsl(59, 100%, 66%)",
               "Destroyed",
               "hsl(0, 100%, 61%)",
-              "hsla(0, 0%, 0%, 0)"
+              "hsl(180, 100%, 50%)"
             ],
             "circle-stroke-width": [
               "interpolate",
@@ -225,8 +223,10 @@ function getVals() {
     // Get slider values
     var parent = this.parentNode;
     var slides = parent.getElementsByTagName("input");
-    var slide1 = parseFloat(slides[0].value);
-    var slide2 = parseFloat(slides[1].value);
+    var low_slider = document.getElementById("lowerbound");
+    var high_slider = document.getElementById("upperbound");
+    var slide1 = parseFloat(low_slider.value);
+    var slide2 = parseFloat(high_slider.value);
     // Neither slider will clip the other, so make sure we determine which is larger
     if (slide1 > slide2) { var tmp = slide2; slide2 = slide1; slide1 = tmp; }
 
@@ -247,6 +247,7 @@ function getVals() {
     var deltaDiv = document.getElementById("delta");
     var start = ((slide1 - 1920) / (2017 - 1920)) * 100;
     var delta = ((slide2 - slide1) / (2017 - 1920)) * 100;
+
     deltaDiv.style.left = start + "%";
     deltaDiv.style.width = delta + "%";
 
@@ -255,8 +256,14 @@ function getVals() {
 
    var low_filter = ['>=', ['number', ['get', 'Event Year']], slide1];
    var high_filter = ['<=', ['number', ['get', 'Event Year']], slide2];
+  
 
-   var date_filter = ["all", low_filter, high_filter]
+   console.log("slide1: "+slide1)
+   console.log("slide2: "+slide2)
+
+
+   var date_filter = ["all", low_filter, high_filter, default_filter];
+   console.log(date_filter);
    map.setFilter('plane-crashes', date_filter);
 
 }

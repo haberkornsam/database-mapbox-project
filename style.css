@@ -10,6 +10,17 @@ body {
     width: 100%;
 }
 
+.keydiv {
+    height: 25px;
+    width: 25px;
+}
+#red {
+    background-color: red;
+}
+#yellow {
+    background-color: yellow;
+}
+
 .mapboxgl-popup {
     max-width: 500px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
