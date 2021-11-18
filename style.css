@@ -15,11 +15,18 @@ body {
     width: 25px;
 }
 #red {
-    background-color: red;
+    background-color: #ff3838;
 }
 #yellow {
-    background-color: yellow;
+    background-color: #fffc52;
 }
+#green {
+    background-color: #5dfe72;
+}
+#blue {
+    background-color: #00ffff;
+}
+
 
 .mapboxgl-popup {
     max-width: 500px;
